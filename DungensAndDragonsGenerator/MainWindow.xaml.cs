@@ -26,9 +26,9 @@ namespace DungensAndDragonsGenerator
     public partial class MainWindow : Window
     {
 
-       
 
 
+        public static Player CurrentPlayer = new Player();
         public MainWindow()
         {
              
@@ -47,31 +47,22 @@ namespace DungensAndDragonsGenerator
             }
 
 
-
-
-
+            TabController.DataContext = CurrentPlayer;
+          
+            
 
 
 
         }
 
+        private void Menu_Save(object sender, RoutedEventArgs e)
+        {
+            FileManager.Serialize(CurrentPlayer);
+        }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
+        private void Menu_Open(object sender, RoutedEventArgs e)
+        {
+            FileManager.Desirialize();
+        }
     }
 }

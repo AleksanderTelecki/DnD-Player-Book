@@ -7,7 +7,7 @@
         mc:Ignorable="d"
        
         
-        Title="DungensAndDragons Formage Beta 1.7" Height="690" Width="500"  WindowStartupLocation="CenterScreen" >
+        Title="DungensAndDragons Formage Beta 1.7" Height="700" Width="550"  WindowStartupLocation="CenterScreen" >
 
     <Window.Resources>
         
@@ -49,13 +49,13 @@
                         <Image Source="./Resources/AddItemstoFolder_13217_32.bmp"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Open" >
+                <MenuItem Header="_Open" Click="Menu_Open" >
                     <MenuItem.Icon>
                         <Image Source="./Resources/FolderOpen_7140_24.bmp"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
-                <MenuItem Header="Save"   >
+                <MenuItem Header="_Save" Click="Menu_Save"  >
                     <MenuItem.Icon>
                         <Image Source="./Resources/Compile_191_32.bmp"></Image>
                     </MenuItem.Icon>
@@ -95,7 +95,7 @@
 
         </Menu>
 
-        <TabControl TabStripPlacement="Left">
+        <TabControl TabStripPlacement="Left" Name="TabController" DataContext="{Binding Player}">
             <TabItem  Header="Persona">
                 <Border Grid.Row="0" BorderBrush="DarkSlateGray" BorderThickness="4" Background="#FFC0ABD3">
                     <Grid Margin="2">
@@ -128,21 +128,20 @@
                                 </Image.ToolTip>
                             </Image>
 
-                        </Border>    
-                        
-                        
-                        
-                                <StackPanel>
-                                    <TextBlock Text="Имя Персонажа" ></TextBlock>
-                                    <TextBox x:Name="_TextName" MinWidth="210"/>
+                        </Border>
 
-                                </StackPanel>
-                                <StackPanel Grid.Row="0" Grid.Column="1" >
-                                    <TextBlock  Text="Опыт" ></TextBlock>
-                                    <TextBox  x:Name="_TextExp" Margin="0 0 0 0"/>
-                                </StackPanel>
-
-
+                        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
+                            <StackPanel>
+                                <TextBlock Text="Имя Персонажа" ></TextBlock>
+                                <TextBox x:Name="_TextName" Text="{Binding Path=Name ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="170"/>
+                            </StackPanel>
+                            <StackPanel>
+                                <TextBlock  Text="Опыт" ></TextBlock>
+                                <TextBox  x:Name="_TextExp" MinWidth="80"/>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                     
 
                         <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
@@ -313,7 +312,7 @@
                             </Grid.RowDefinitions>
 
 
-                            <Grid Grid.Row="0" Grid.Column="0">
+                            <Grid Grid.Row="0"  Grid.Column="0">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="0.3*"/>
                                     <RowDefinition/>
@@ -868,7 +867,7 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Button  x:Name="CondAdd" Margin="0 0 4 0"  Content="Добавить"/>
-                                <Button  x:Name="CondChange" Margin="0 0 4 0"  Grid.Column="1" Content="Изменить"/>
+                                <Button  x:Name="CondChange" Margin="0 0 4 0"  Grid.Column="1" Content="Сохранить"/>
                                 <Button  x:Name="CondDel" Grid.Column="2"  Content="Удалить"/>
                                 
                                 
@@ -910,8 +909,8 @@
                     <Grid Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
-                            <ColumnDefinition Width="0.2*"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1.2*"/>
+                            <ColumnDefinition Width="1.4*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.4*"></RowDefinition>
@@ -922,23 +921,40 @@
                          
                             <RowDefinition Height="0.4*"></RowDefinition>
 
-                            <RowDefinition Height="0.4*"/>
+                            <RowDefinition Height="0.3*"/>
 
                             <RowDefinition />
 
                             <RowDefinition />
 
-                            <RowDefinition Height="0.2*"/>
+                            <RowDefinition Height="0.16*"/>
                             
 
                         </Grid.RowDefinitions>
 
-                        <StackPanel Margin="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" >
+
+                        <Grid Grid.RowSpan="8">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"/>
+                                <RowDefinition Height="3.5*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Список" FontSize="14"/>
+                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="White" Margin="0 0 5 0" >
+
+                            </ScrollViewer>
+                        </Grid>
+                            
+                            
+                      
+                       
+                        
+                        
+                        <StackPanel Margin="1" Grid.Column="2"  Grid.Row="4" >
                             <TextBlock/>
                             <Button  x:Name="WeapIma" Margin="10 0 0 0" Content="Добавить / Изменить Фото"/>
                         </StackPanel>
 
-                        <Border Background="Gray" Margin="10 3 3 3" BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                        <Border Background="Gray" Margin="10 3 3 3" BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="2"  Grid.RowSpan="4">
                             <Image  Stretch="Fill" x:Name="WeapImag">
                                 <Image.ToolTip>
                                     <Image MaxWidth="400" MaxHeight="400" x:Name="WeapImagTolT"/>
@@ -948,17 +964,17 @@
 
 
 
-                        <StackPanel Grid.Column="0" Grid.Row="0">
+                        <StackPanel Grid.Column="1" Grid.Row="0">
                                 <TextBlock Grid.Column="0" Grid.Row="0" Text="Название"/>
                                 <TextBox  Grid.Column="0" Grid.Row="1" x:Name="WeapName"   />
                             </StackPanel>
 
-                        <Grid Grid.Column="0" Grid.Row="5" Grid.RowSpan="2">
+                        <Grid Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="2">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.1*"/>
+                                <RowDefinition Height="0.06*"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                                <TextBlock FontSize="15" Text="Описание"/>
+                                <TextBlock FontSize="14" Text="Описание"/>
                                 <RichTextBox Margin="0 3 3 3" Grid.Row="1" x:Name="WeapDescripto"  MinWidth="100"  >
                                 <RichTextBox.Resources>
                                     <Style TargetType="{x:Type Paragraph}">
@@ -969,7 +985,7 @@
                         </Grid>
 
 
-                        <StackPanel Grid.Row="1" Grid.Column="0">
+                        <StackPanel Grid.Row="1" Grid.Column="1">
                                 <TextBlock Text="Урон"/>
                                 <ComboBox x:Name="WeapComboDamage"  >
                                     <ComboBoxItem Content="1K4"/>
@@ -990,17 +1006,17 @@
                                 </ComboBox>
                             </StackPanel>
 
-                            <StackPanel Grid.Column="0" Grid.Row="2">
-                                <TextBlock Text="Вид / Тип"/>
+                            <StackPanel Grid.Column="1" Grid.Row="2">
+                                <TextBlock Text="Тип"/>
                                 <TextBox    x:Name="WeapComboType"/>
                             </StackPanel>
 
-                            <StackPanel Grid.Row="3" Grid.Column="0">
+                            <StackPanel Grid.Row="3" Grid.Column="1">
                                 <TextBlock Text="Дистанция"/>
                                 <TextBox x:Name="WeapDistance"   />
                             </StackPanel>
 
-                            <StackPanel Grid.Row="4" Grid.Column="0">
+                            <StackPanel Grid.Row="4" Grid.Column="1">
                                 <TextBlock Text="Бонус Атаки"/>
                                 <TextBox x:Name="WeapBonus"  />
                             </StackPanel>
@@ -1011,22 +1027,10 @@
 
 
 
-                        <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="0.1*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            
-                            
-                            
-                        <TextBlock FontSize="15" Grid.Row="0"  Text="Список"/>
-                        <ListBox  x:Name="_WeaponList"  Grid.Row="1"   Margin="0 3 3 3">
-
-                        </ListBox>
-                        </Grid>
+                       
 
 
-                        <Grid  Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Grid  Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="0.7*"/>
@@ -1054,8 +1058,8 @@
                     <Grid Margin="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
-                            <ColumnDefinition Width="0.2*"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1.2*"/>
+                            <ColumnDefinition Width="1.4*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.4*"></RowDefinition>
@@ -1068,7 +1072,9 @@
 
                             <RowDefinition Height="0.4*"/>
 
-                            <RowDefinition />
+                            <RowDefinition Height="0.3*"/>
+
+                            <RowDefinition Height="1.5*" />
 
                             <RowDefinition />
 
@@ -1077,11 +1083,24 @@
 
                         </Grid.RowDefinitions>
 
+
+                        <Grid Grid.RowSpan="9">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"/>
+                                <RowDefinition Height="3.5*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Список" FontSize="14"/>
+                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="White" Margin="0 0 5 0" >
+
+                            </ScrollViewer>
+                        </Grid>
+
+
                         <StackPanel Margin="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" >
                            
                         </StackPanel>
 
-                        <Border Background="Gray" Margin="10 3 3 3" BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4">
+                        <Border Background="Gray" Margin="10 3 3 3" BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5">
                             <Image  Stretch="Fill" x:Name="MageImag">
                                 <Image.ToolTip>
                                     <Image MaxWidth="400" MaxHeight="400" x:Name="MageImagTolT"/>
@@ -1091,17 +1110,17 @@
 
 
 
-                        <StackPanel Grid.Column="0" Grid.Row="1">
+                        <StackPanel Grid.Column="1" Grid.Row="2">
                             <TextBlock Text="Базовая Характеристика"/>
                             <TextBox x:Name="_BHZText"/>
                         </StackPanel>
 
-                        <Grid Grid.Column="0" Grid.Row="5" Grid.RowSpan="2">
+                        <Grid Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6" Grid.RowSpan="2">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="0.1*"/>
+                                <RowDefinition Height="0.07*"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock FontSize="15" Text="Описание"/>
+                            <TextBlock FontSize="14" Text="Описание"/>
                             <RichTextBox Margin="0 3 3 3" Grid.Row="1" x:Name="_OpisText"  MinWidth="100"  >
                                 <RichTextBox.Resources>
                                     <Style TargetType="{x:Type Paragraph}">
@@ -1112,51 +1131,44 @@
                         </Grid>
 
 
-                        <StackPanel Grid.Row="3" Grid.Column="0">
+                        <StackPanel Grid.Row="4" Grid.Column="1">
                             <TextBlock Text="Сложность Спасброска"/>
                             <TextBox x:Name="_PowerSaveText" />
                         </StackPanel>
-
-                        <StackPanel Grid.Column="0" Grid.Row="2">
+                        
+                        <StackPanel Grid.Row="1" Grid.Column="1">
+                            <TextBlock Text="Уровень"/>
+                            <ComboBox/>
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="1" Grid.Row="3">
                             <TextBlock Text="Магический Бонус Атаки"/>
                             <TextBox x:Name="_MagicBonusText" />
                         </StackPanel>
 
-                        <StackPanel Grid.Row="0" Grid.Column="0">
+                        <StackPanel Grid.Row="0" Grid.Column="1">
                             <TextBlock Text="Название Заклинания"/>
                             <TextBox x:Name="_NamingText"  />
                         </StackPanel>
 
-                        <StackPanel Grid.Row="4" Grid.Column="0">
+                        <StackPanel Grid.Row="5" Grid.Column="1">
                             <TextBlock Text="Дистанция"/>
                             <TextBox x:Name="_MageDistance"  />
                         </StackPanel>
 
 
 
-                        <StackPanel Margin="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" >
+                        <StackPanel Margin="1" Grid.Column="2" Grid.Row="5" >
                             <TextBlock/>
                             <Button   x:Name="MImage" Margin="10 0 0 0" Content="Добавить / Изменить Фото"/>
                         </StackPanel>
 
 
 
-                        <Grid Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="0.1*"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
+                       
 
 
-
-                            <TextBlock FontSize="15" Grid.Row="0"  Text="Список"/>
-                            <ListBox x:Name="_ListMageDamage"  Grid.Row="1"   Margin="0 3 3 3">
-
-                            </ListBox>
-                        </Grid>
-
-
-                        <Grid  Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2">
+                        <Grid  Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="0.7*"/>
@@ -1185,26 +1197,38 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
-                            <!--Text-->
+                          
                             <RowDefinition Height="*"></RowDefinition>
-                            <!--OpistaIlość add but-->
-                            <RowDefinition Height="0.2*"></RowDefinition>
-                            <!--Ilość-->
-                            <RowDefinition Height="*"></RowDefinition>
-                            <!--AddBut-->
-                            <RowDefinition Height="*"></RowDefinition>
-                            <!--List-->
+                          
+                            <RowDefinition Height="0.18*"></RowDefinition>
+                         
+                            <RowDefinition Height="2.5*"></RowDefinition>
+                         
+                            <RowDefinition Height="0.27*"></RowDefinition>
+                           
 
-                            <!--delete button-->
+                           
                         </Grid.RowDefinitions>
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="0.45*"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
 
+                        <Grid Grid.RowSpan="5" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.14*"/>
+                                <RowDefinition Height="3.5*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Margin="0 5 0 0" Text="Список" FontSize="14"/>
+                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="White" Margin="2 0 5 5" >
+                                
+                            </ScrollViewer>
+                        </Grid>
 
-                        <Border Background="Gray" Margin="6 6 6 11"  BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+
+                        <Border Background="Gray" Margin="5"  BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
                             <Image  Stretch="Fill" x:Name="LootImag">
                                 <Image.ToolTip>
                                     <Image MaxWidth="400" MaxHeight="400" x:Name="LootImagTolT"/>
@@ -1212,21 +1236,21 @@
                             </Image>
                         </Border>
 
-                      
-                            <Button x:Name="LootImage" Grid.Column="1" Grid.Row="2" Margin="10 0 10 0" Content="Добавить / Изменить Фото"/>
-                        
 
-                        <Grid Grid.Row="0" Grid.RowSpan="2"  Margin="3">
+                        <Button Margin="5 0 5 0" Grid.ColumnSpan="2" x:Name="LootImage" Grid.Column="1" Grid.Row="2"  Content="Добавить / Изменить Фото"/>
+
+
+                        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"  Margin="3">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="0.1*"/>
                                 <RowDefinition/>
-                                <RowDefinition Height="0.2*"/>
+                                <RowDefinition Height="0.15*"/>
                             </Grid.RowDefinitions>
                             
                             
                             
                                 <TextBlock Grid.Row="0" Text="Описание"/>
-                            <RichTextBox Grid.Row="1" x:Name="LootDescr" BorderBrush="Black" BorderThickness="2">
+                            <RichTextBox Grid.Row="1"  x:Name="LootDescr" BorderBrush="Black" BorderThickness="2">
                                 <RichTextBox.Resources>
                                     <Style TargetType="{x:Type Paragraph}">
                                         <Setter Property="Margin" Value="0"/>
@@ -1241,21 +1265,19 @@
                             </StackPanel>
                         </Grid>
 
-                        <Grid Grid.Row="2">
+                        <Grid Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="1" Margin="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition Width="0.7*"/>
+                                <ColumnDefinition Width="0.5*"/>
                             </Grid.ColumnDefinitions>
-                            <Button Margin="5 0 0 0" Grid.Column="0" Content="Сохранить"  BorderThickness="2" />
-                            <Button Margin="5 0 5 0"  Grid.Column="1"  Content="Удалить"  BorderThickness="2" />
-                            <Button  Grid.Column="2"  Content="Добавить"  />
+                            <Button   Grid.Column="0" Content="Добавить " Margin="0 0 4 0"/>
+                            <Button   Grid.Column="1"  Content="Сохранить" Margin="0 0 4 0"  />
+                            <Button   Grid.Column="2" Content="Удалить" Margin="0 0 2 0" />
                         </Grid>
                         
                         
-                        <ListBox Grid.RowSpan="2" FontSize="10" x:Name="_ListLootBag" Grid.Row="3" Grid.ColumnSpan="2"    Margin="4">
-
-                        </ListBox>
+                        
 
 
                     </Grid>

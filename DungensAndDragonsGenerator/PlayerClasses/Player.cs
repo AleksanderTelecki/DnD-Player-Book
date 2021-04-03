@@ -45,7 +45,8 @@ namespace DungensAndDragonsGenerator
 
         public string ArmorClass { get; set; }
 
-        public string Speed { get => Race.Speed; set => Speed = value; }
+        private string _speed;
+        public string Speed { get => _speed ?? Race?.Speed; set => _speed = value; }
 
         public List<Condition> Conditions { get; set; }
 
@@ -62,5 +63,15 @@ namespace DungensAndDragonsGenerator
         public int PassiveWise { get; set; }
 
         public string Initiative { get; set; }
+
+
+        public Player ()
+        {
+
+
+
+        }
+
+
     }
 }
