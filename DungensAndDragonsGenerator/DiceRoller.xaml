@@ -1,0 +1,59 @@
+﻿<Window x:Class="DungensAndDragonsGenerator.DiceRoller"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DungensAndDragonsGenerator"
+        mc:Ignorable="d"
+        Title="DiceRoller" Height="230" Width="450">
+
+    <Window.Resources>
+
+        <Style TargetType="Button">
+
+
+            <Setter Property="Background" Value="#FFAEADAD"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border  CornerRadius="2"  Background="{TemplateBinding Background}" >
+                            <ContentPresenter   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#FF4DB3C2" />
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </Window.Resources>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="0.83*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        
+        <GridSplitter Grid.Column="1" ShowsPreview="False" Width="4" Background="#FF434040" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+        <Border Background="#FF5AAB6C" BorderThickness="2">
+            <StackPanel Margin="4">
+                <Button Click="RandomDice_Click" Margin="3" Content="Random Dice Roll"/>
+                <Button Click="Skill_Click" Margin="3" Content="Random Skills"/>
+                <Button Click="D20_Click" Margin="3" Content="D20"/>
+                <Button Click="Perc_Click" Content="Random Percentage" Margin="3"/>
+            </StackPanel>
+        </Border>
+
+        <Frame NavigationUIVisibility="Hidden" x:Name="_Frame" Grid.Column="2" BorderBrush="Green" BorderThickness="1"/>
+
+    </Grid>
+</Window>

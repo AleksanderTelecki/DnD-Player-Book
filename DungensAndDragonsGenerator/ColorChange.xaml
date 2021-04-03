@@ -1,0 +1,38 @@
+﻿<Window x:Class="DungensAndDragonsGenerator.ColorChange"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DungensAndDragonsGenerator"
+        mc:Ignorable="d"
+        Title="ColorChange" Height="80" Width="300">
+    <Border Background="CadetBlue" BorderBrush="Black" BorderThickness="3" Margin="2">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+            <StackPanel VerticalAlignment="Center" Margin="2">
+                <TextBlock Text="Окно"/>
+                <ComboBox>
+                    <ComboBoxItem>Persona</ComboBoxItem>
+                    <ComboBoxItem>Skills</ComboBoxItem>
+                    <ComboBoxItem>Condition</ComboBoxItem>
+                    <ComboBoxItem>Weapons</ComboBoxItem>
+                    <ComboBoxItem>Spells</ComboBoxItem>
+                    <ComboBoxItem>Equipment</ComboBoxItem>
+                    <ComboBoxItem>Features</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="2">
+                <TextBlock Text="Цвет (HEX)" />
+                <TextBox KeyDown="TextBox_KeyDown" Padding="2.5"/>
+            </StackPanel>
+          
+            
+        
+    </Grid>
+    </Border>
+</Window>
