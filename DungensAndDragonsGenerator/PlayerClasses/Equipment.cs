@@ -6,20 +6,8 @@ using System.Threading.Tasks;
 
 namespace DungensAndDragonsGenerator
 {
-    interface IRace
+    public class Equipment
     {
-
-
-         string  Naming { get;  }
-
-         string StateBonus { get;  }
-
-        List<RacePattern> Subrace { get;  } 
-
-
-
-
-
 
 
     }

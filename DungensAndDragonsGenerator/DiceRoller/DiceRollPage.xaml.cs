@@ -37,7 +37,7 @@ namespace DungensAndDragonsGenerator
 
             if (ComboDice.SelectedIndex!=-1&&ComboCount.SelectedIndex!=-1)
             {
-                _TextRand.Text = RollDice.Roll(IndexSearch(ComboDice.SelectedIndex), int.Parse(ComboCount.Text));
+               // _TextRand.Text = RollDice.Roll(IndexSearch(ComboDice.SelectedIndex), int.Parse(ComboCount.Text));
             }
 
 

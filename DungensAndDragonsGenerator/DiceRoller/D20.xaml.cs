@@ -27,7 +27,7 @@ namespace DungensAndDragonsGenerator
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _TextRand.Text = RollDice.RollD20();
+            //_TextRand.Text = RollDice.RollD20();
         }
     }
 }

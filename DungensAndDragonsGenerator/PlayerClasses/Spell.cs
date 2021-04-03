@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace DungensAndDragonsGenerator
 {
-    public class Race
+    public class Spell
     {
-
-        public string _Race { get; set; }
-
-        public string SubRace { get; set; }
-
-
-
 
 
     }

@@ -29,7 +29,7 @@ namespace DungensAndDragonsGenerator
         {
 
 
-            _TextRand.Text = RollDice.RollSkills();
+            //_TextRand.Text = RollDice.RollSkills();
 
         }
     }

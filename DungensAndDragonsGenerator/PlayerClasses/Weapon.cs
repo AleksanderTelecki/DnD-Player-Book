@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace DungensAndDragonsGenerator
 {
-    interface IState
+    public class Weapon
     {
-
-
-
-
 
 
 

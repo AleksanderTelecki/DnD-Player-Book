@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DungensAndDragonsGenerator"
         mc:Ignorable="d"
-        Closing="Window_Closing"
+       
         
         Title="DungensAndDragons Formage Beta 1.7" Height="690" Width="500"  WindowStartupLocation="CenterScreen" >
 
@@ -44,18 +44,18 @@
         <Menu DockPanel.Dock="Top">
             
             <MenuItem  Header="_File">
-                <MenuItem Header="_New" Click="MenuNew_Click">
+                <MenuItem Header="_New" >
                     <MenuItem.Icon>
                         <Image Source="./Resources/AddItemstoFolder_13217_32.bmp"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Open" Click="MenuOpen_Click">
+                <MenuItem Header="_Open" >
                     <MenuItem.Icon>
                         <Image Source="./Resources/FolderOpen_7140_24.bmp"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
-                <MenuItem Header="Save" Click="MenuSave_Click"  >
+                <MenuItem Header="Save"   >
                     <MenuItem.Icon>
                         <Image Source="./Resources/Compile_191_32.bmp"></Image>
                     </MenuItem.Icon>
@@ -65,7 +65,7 @@
             
             <MenuItem Header="_Dice Roller">
                 
-                    <MenuItem Header="Open" Click="MenuRand_Click">
+                    <MenuItem Header="Open" >
                         <MenuItem.Icon>
                             <Image Source="./Resources/dice-512.bmp"></Image>
                         </MenuItem.Icon>
@@ -74,19 +74,19 @@
 
             <MenuItem Header="_DND - Books">
 
-                <MenuItem Header="Player's Handbook" Click="PPDF_Click">
+                <MenuItem Header="Player's Handbook" >
                     <MenuItem.Icon>
                         <Image Source="./Resources/PLable.bmp"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Dungeon Master's Guide" Click="DMPDF_Click">
+                <MenuItem Header="Dungeon Master's Guide" >
                     <MenuItem.Icon>
                         <Image Source="./Resources/Icon_01.bmp"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
 
-                <MenuItem Header="Monster Manual" Click="MMPDF_Click">
+                <MenuItem Header="Monster Manual" >
                     <MenuItem.Icon>
                         <Image Source="./Resources/MLable.bmp"></Image>
                     </MenuItem.Icon>
@@ -234,13 +234,13 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button  Grid.Column="0" Click="AddToLevelClassList_Click" Content="Добавить" Margin="0 0 4 0"  BorderThickness="1"/>
-                            <Button Grid.Column="1" Click="SaveAdd_Click" Content="Сохранить"  BorderThickness="1" Margin="0 0 0 0 "/>
-                            <Button Grid.Column="2" Click="Delet_Click" Content="Удалить" Margin="4 0 0 0"  BorderThickness="1"/>
+                            <Button  Grid.Column="0"  Content="Добавить" Margin="0 0 4 0"  BorderThickness="1"/>
+                            <Button Grid.Column="1"  Content="Сохранить"  BorderThickness="1" Margin="0 0 0 0 "/>
+                            <Button Grid.Column="2"  Content="Удалить" Margin="4 0 0 0"  BorderThickness="1"/>
 
                         </Grid>
                         
-                            <Button Click="_FotoButt_Click" Grid.Column="3" Grid.Row="4" Margin="5 0 5 0"  x:Name="_FotoButt" Content="Добавить Фото"/>
+                            <Button  Grid.Column="3" Grid.Row="4" Margin="5 0 5 0"  x:Name="_FotoButt" Content="Добавить Фото"/>
 
 
 
@@ -454,33 +454,33 @@
                             
                             <StackPanel Grid.Row="0" Grid.Column="3">
                                 <TextBlock Text="Сила" ></TextBlock>
-                                <TextBox  x:Name="_Strength"  LostKeyboardFocus="TextBox_LostKeyboardFocus" Margin="0 0 0 0" />
+                                <TextBox  x:Name="_Strength"   Margin="0 0 0 0" />
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Grid.Column="3">
                                 <TextBlock Text="Ловкость" ></TextBlock>
-                                <TextBox x:Name="_Dexterity" LostKeyboardFocus="TextBox_LostKeyboardFocus"  Margin="0 0 0 0" />
+                                <TextBox x:Name="_Dexterity"   Margin="0 0 0 0" />
 
                             </StackPanel>
 
                             <StackPanel Grid.Row="2" Grid.Column="3">
                                 <TextBlock Text="Телосложение" ></TextBlock>
-                                <TextBox x:Name="_Constitutiun" LostKeyboardFocus="TextBox_LostKeyboardFocus" Margin="0 0 0 0" />
+                                <TextBox x:Name="_Constitutiun"  Margin="0 0 0 0" />
                             </StackPanel>
 
                             <StackPanel Grid.Row="3" Grid.Column="3">
                                 <TextBlock Text="Интилект" ></TextBlock>
-                                <TextBox x:Name="_Intelligens" LostKeyboardFocus="TextBox_LostKeyboardFocus" Margin="0 0 0 0" />
+                                <TextBox x:Name="_Intelligens"  Margin="0 0 0 0" />
                             </StackPanel>
 
                             <StackPanel Grid.Row="4" Grid.Column="3">
                                 <TextBlock Text="Мудрость" ></TextBlock>
-                                <TextBox x:Name="_Wise" LostKeyboardFocus="TextBox_LostKeyboardFocus" Margin="0 0 0 0" />
+                                <TextBox x:Name="_Wise"  Margin="0 0 0 0" />
                             </StackPanel>
 
                             <StackPanel Grid.Row="5" Grid.Column="3">
                                 <TextBlock Text="Харизма" ></TextBlock>
-                                <TextBox x:Name="_Charisma" LostKeyboardFocus="TextBox_LostKeyboardFocus" Margin="0 0 0 0" />
+                                <TextBox x:Name="_Charisma" Margin="0 0 0 0" />
                             </StackPanel>
 
                             <StackPanel Grid.Row="6" Grid.RowSpan="2" Grid.Column="3">
@@ -867,9 +867,9 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Button Click="CondAdd_Click" x:Name="CondAdd" Margin="0 0 4 0"  Content="Добавить"/>
-                                <Button Click="CondChange_Click" x:Name="CondChange" Margin="0 0 4 0"  Grid.Column="1" Content="Изменить"/>
-                                <Button Click="CondDel_Click" x:Name="CondDel" Grid.Column="2"  Content="Удалить"/>
+                                <Button  x:Name="CondAdd" Margin="0 0 4 0"  Content="Добавить"/>
+                                <Button  x:Name="CondChange" Margin="0 0 4 0"  Grid.Column="1" Content="Изменить"/>
+                                <Button  x:Name="CondDel" Grid.Column="2"  Content="Удалить"/>
                                 
                                 
                             </Grid>
@@ -935,7 +935,7 @@
 
                         <StackPanel Margin="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" >
                             <TextBlock/>
-                            <Button Click="WeapImag_Click" x:Name="WeapIma" Margin="10 0 0 0" Content="Добавить / Изменить Фото"/>
+                            <Button  x:Name="WeapIma" Margin="10 0 0 0" Content="Добавить / Изменить Фото"/>
                         </StackPanel>
 
                         <Border Background="Gray" Margin="10 3 3 3" BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="4">
@@ -1032,9 +1032,9 @@
                                 <ColumnDefinition Width="0.7*"/>
                                 <ColumnDefinition Width="0.5*"/>
                             </Grid.ColumnDefinitions>
-                                <Button  Click="AddButtonWeap_Click" Grid.Column="0" Content="Добавить " Margin="0 0 4 0"/>
-                                <Button Click="SaveButtonWeap_Click" Grid.Column="1"  Content="Сохранить" Margin="0 0 4 0"  />
-                                <Button  Click="DeleteButtonWeap_Click" Grid.Column="2" Content="Удалить" Margin="0 0 2 0" />
+                                <Button   Grid.Column="0" Content="Добавить " Margin="0 0 4 0"/>
+                                <Button  Grid.Column="1"  Content="Сохранить" Margin="0 0 4 0"  />
+                                <Button   Grid.Column="2" Content="Удалить" Margin="0 0 2 0" />
                         </Grid>
 
 
@@ -1136,7 +1136,7 @@
 
                         <StackPanel Margin="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" >
                             <TextBlock/>
-                            <Button Click="MImage_Click"  x:Name="MImage" Margin="10 0 0 0" Content="Добавить / Изменить Фото"/>
+                            <Button   x:Name="MImage" Margin="10 0 0 0" Content="Добавить / Изменить Фото"/>
                         </StackPanel>
 
 
@@ -1162,9 +1162,9 @@
                                 <ColumnDefinition Width="0.7*"/>
                                 <ColumnDefinition Width="0.5*"/>
                             </Grid.ColumnDefinitions>
-                            <Button  Click="AddCast_Click" Grid.Column="0" Content="Добавить " Margin="0 0 4 0"/>
-                            <Button Click="SaveMageD_Click"  Grid.Column="1"  Content="Сохранить" Margin="0 0 4 0"  />
-                            <Button  Click="DeleteMage_Click" Grid.Column="2" Content="Удалить" Margin="0 0 2 0" />
+                            <Button   Grid.Column="0" Content="Добавить " Margin="0 0 4 0"/>
+                            <Button   Grid.Column="1"  Content="Сохранить" Margin="0 0 4 0"  />
+                            <Button   Grid.Column="2" Content="Удалить" Margin="0 0 2 0" />
                         </Grid>
 
 
@@ -1213,7 +1213,7 @@
                         </Border>
 
                       
-                            <Button Click="LootImag_Click" x:Name="LootImage" Grid.Column="1" Grid.Row="2" Margin="10 0 10 0" Content="Добавить / Изменить Фото"/>
+                            <Button x:Name="LootImage" Grid.Column="1" Grid.Row="2" Margin="10 0 10 0" Content="Добавить / Изменить Фото"/>
                         
 
                         <Grid Grid.Row="0" Grid.RowSpan="2"  Margin="3">
@@ -1247,9 +1247,9 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Button Margin="5 0 0 0" Click="SaveButtonLoot_Click" Grid.Column="0" Content="Сохранить"  BorderThickness="2" />
-                            <Button Margin="5 0 5 0" Click="DeleteButtonLoot_Click" Grid.Column="1"  Content="Удалить"  BorderThickness="2" />
-                            <Button Click="AddButtonLoot_Click" Grid.Column="2"  Content="Добавить"  />
+                            <Button Margin="5 0 0 0" Grid.Column="0" Content="Сохранить"  BorderThickness="2" />
+                            <Button Margin="5 0 5 0"  Grid.Column="1"  Content="Удалить"  BorderThickness="2" />
+                            <Button  Grid.Column="2"  Content="Добавить"  />
                         </Grid>
                         
                         

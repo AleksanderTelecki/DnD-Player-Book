@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace DungensAndDragonsGenerator
 {
-   public class State
+    public class Condition
     {
+
+        public string Description { get; set; }
+
+        public string Time { get; set; }
     }
 }

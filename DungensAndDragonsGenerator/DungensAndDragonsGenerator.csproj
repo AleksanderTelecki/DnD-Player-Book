@@ -83,70 +83,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Chara.cs" />
     <Compile Include="ColorChange.xaml.cs">
       <DependentUpon>ColorChange.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConditionsList.cs" />
-    <Compile Include="ConstituClass.cs" />
-    <Compile Include="D20.xaml.cs">
+    <Compile Include="DiceRoller\D20.xaml.cs">
       <DependentUpon>D20.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DiceRoller.xaml.cs">
+    <Compile Include="DiceRoller\DiceRoller.xaml.cs">
       <DependentUpon>DiceRoller.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DiceRollPage.xaml.cs">
+    <Compile Include="DiceRoller\DiceRollPage.xaml.cs">
       <DependentUpon>DiceRollPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DnDRaces\Abillities.cs" />
-    <Compile Include="DnDRaces\DnDRaces.cs" />
-    <Compile Include="DnDRaces\DragonBorns.cs" />
-    <Compile Include="DnDRaces\Dwarfs.cs" />
-    <Compile Include="DnDRaces\ElvenRace.cs" />
-    <Compile Include="DnDRaces\Gnoms.cs" />
-    <Compile Include="DnDRaces\Half-Elven.cs" />
-    <Compile Include="DnDRaces\Halfings.cs" />
-    <Compile Include="DnDRaces\HalfOrk.cs" />
-    <Compile Include="DnDRaces\Human.cs" />
-    <Compile Include="DnDRaces\RacePattern.cs" />
-    <Compile Include="DnDRaces\StatusBonus.cs" />
-    <Compile Include="DnDRaces\StringStatusBonus.cs" />
-    <Compile Include="DnDRaces\Tiflings.cs" />
-    <Compile Include="IRace.cs" />
-    <Compile Include="IState.cs" />
-    <Compile Include="LevelClass.cs" />
-    <Compile Include="LootBag.cs" />
-    <Compile Include="MagicDamage.cs" />
-    <Compile Include="PDFReader.xaml.cs">
+    <Compile Include="HelperClasses\MyEnums.cs" />
+    <Compile Include="PdfReader\PDFReader.xaml.cs">
       <DependentUpon>PDFReader.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PersonaBlock.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Race.cs" />
-    <Compile Include="RollDice.cs" />
-    <Compile Include="RollPercPage.xaml.cs">
+    <Compile Include="DiceRoller\RollPercPage.xaml.cs">
       <DependentUpon>RollPercPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SavingThrow.cs" />
-    <Compile Include="SkillPage.xaml.cs">
+    <Compile Include="DiceRoller\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Skills.cs" />
-    <Compile Include="State.cs" />
-    <Compile Include="WeaponDamage.cs" />
     <Page Include="ColorChange.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="D20.xaml">
+    <Page Include="DiceRoller\D20.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DiceRoller.xaml">
+    <Page Include="DiceRoller\DiceRoller.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DiceRollPage.xaml">
+    <Page Include="DiceRoller\DiceRollPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,20 +133,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PDFReader.xaml">
+    <Page Include="PdfReader\PDFReader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RollPercPage.xaml">
+    <Page Include="DiceRoller\RollPercPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SkillPage.xaml">
+    <Page Include="DiceRoller\SkillPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PlayerClasses\Class.cs" />
+    <Compile Include="PlayerClasses\Condition.cs" />
+    <Compile Include="PlayerClasses\Equipment.cs" />
+    <Compile Include="PlayerClasses\Player.cs" />
+    <Compile Include="PlayerClasses\Race.cs" />
+    <Compile Include="PlayerClasses\Spell.cs" />
+    <Compile Include="PlayerClasses\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -226,5 +204,6 @@
   <ItemGroup>
     <Resource Include="Resources\Icon_01.bmp" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
