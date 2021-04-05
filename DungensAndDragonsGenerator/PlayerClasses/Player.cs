@@ -64,10 +64,12 @@ namespace DungensAndDragonsGenerator
 
         public string Initiative { get; set; }
 
+        private Skills _skills = new Skills();
+        public Skills Skills { get=>_skills; set=>_skills=value; }
 
         public Player ()
         {
-
+           
 
 
         }

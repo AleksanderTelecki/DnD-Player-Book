@@ -33,36 +33,27 @@ namespace DungensAndDragonsGenerator
         {
              
             InitializeComponent();
-            
-
-
-
-            int majorVer = Environment.OSVersion.Version.Major;
-            int minorVer = Environment.OSVersion.Version.Minor;
-
-            if (majorVer == 6 && minorVer == 1)
-            {
-                Height = 750;
-                Width = 510;
-            }
+            Initializer.WindowSizeInitialize(this);
+           
 
 
             TabController.DataContext = CurrentPlayer;
-          
+            MyEnums.Skills skills = MyEnums.Skills.Acrobatic;
+           
             
-
-
-
+            
         }
 
+     
         private void Menu_Save(object sender, RoutedEventArgs e)
         {
-            FileManager.Serialize(CurrentPlayer);
+            FileManager.Serialize<Player>(CurrentPlayer);
         }
 
         private void Menu_Open(object sender, RoutedEventArgs e)
         {
-            FileManager.Desirialize();
+            FileManager.Desirialize(typeof(Player));
+            
         }
     }
 }

@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="HelperClasses\FileManager.cs" />
     <Compile Include="HelperClasses\MyEnums.cs" />
+    <Compile Include="HelperClasses\Initializer.cs" />
     <Compile Include="PdfReader\PDFReader.xaml.cs">
       <DependentUpon>PDFReader.xaml</DependentUpon>
     </Compile>
@@ -156,6 +157,7 @@
     <Compile Include="PlayerClasses\Equipment.cs" />
     <Compile Include="PlayerClasses\Player.cs" />
     <Compile Include="PlayerClasses\Race.cs" />
+    <Compile Include="PlayerClasses\Skills.cs" />
     <Compile Include="PlayerClasses\Spell.cs" />
     <Compile Include="PlayerClasses\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

@@ -13,7 +13,7 @@ namespace DungensAndDragonsGenerator
     public static class FileManager
     {
 
-        public static void Serialize(Player player)
+        public static void Serialize<T>(T Object)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.DefaultExt = "json";
@@ -27,12 +27,12 @@ namespace DungensAndDragonsGenerator
                 using (StreamWriter sw = new StreamWriter(FilePath))
                 {
                     JsonWriter jsonWriter = new JsonTextWriter(sw);
-                    jsonSerializer.Serialize(jsonWriter, player);
+                    jsonSerializer.Serialize(jsonWriter, Object);
                 }
             }
         }
 
-        public static Player Desirialize()
+        public static object Desirialize(Type DataType)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "JSON-File | *.json";
@@ -50,10 +50,10 @@ namespace DungensAndDragonsGenerator
 
                 }
 
-                return jObject.ToObject<Player>();
+                return jObject.ToObject(DataType);
             }
 
-            return new Player();
+            return null;
         }
     }
 }
