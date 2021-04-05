@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungensAndDragonsGenerator
 {
+    [Serializable]
     public static class MyEnums
     {
         [Flags]
@@ -40,7 +41,19 @@ namespace DungensAndDragonsGenerator
             return (ability & abilitytocompare) == abilitytocompare ? true : false;
         }
 
+        public static MyEnums.Ability GetAbilityByName(string s)
+        {
+            foreach (MyEnums.Ability item in Enum.GetValues(typeof(MyEnums.Ability)))
+            {
+                if (Enum.GetName(typeof(MyEnums.Ability),item)==s)
+                {
+                    return item;
+                }
+            }
 
+            return MyEnums.Ability.None;
+
+        }
 
 
 

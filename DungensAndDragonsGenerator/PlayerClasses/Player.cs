@@ -25,7 +25,8 @@ namespace DungensAndDragonsGenerator
 
         public List<Class> Class { get; set; }
 
-        public Race Race { get; set; }
+        private Race _race = new Race();
+        public Race Race { get=>_race; set=>_race=value; }
 
         public Race SubRace { get; set; }
 

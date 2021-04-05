@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungensAndDragonsGenerator
 {
+    [Serializable]
     public class Race
     {
 
@@ -19,14 +20,16 @@ namespace DungensAndDragonsGenerator
 
         public string Speed { get; set; }
 
-        private AbilityOptional _abilityOptional = new AbilityOptional();
-        public AbilityOptional AbilityOptional { get => _abilityOptional; set => _abilityOptional = value; }
+        private Dictionary<MyEnums.Ability, string> _abilityOptBonus = new Dictionary<MyEnums.Ability, string>();
+        public Dictionary<MyEnums.Ability, string> AbilityOptional { get => _abilityOptBonus; set => _abilityOptBonus = value; }
 
         public string AdditionalInfo { get; set; }
 
         public string AdditionHitPoints { get; set; }
 
-        public Race(string Name, string Speed, string AdditionalInfo, string AdditionalHitPoints, Dictionary<MyEnums.Ability, string> AbilityBonus, List<Race> Subraces, AbilityOptional abilityOptional)
+        public string Description { get; set; }
+
+        public Race(string Name, string Speed, string AdditionalInfo, string AdditionalHitPoints, Dictionary<MyEnums.Ability, string> AbilityBonus, List<Race> Subraces, Dictionary<MyEnums.Ability, string> abilityOptional,string Description)
         {
 
             this.Name = Name;
@@ -36,6 +39,7 @@ namespace DungensAndDragonsGenerator
             this.AdditionalInfo = AdditionalInfo;
             this.AdditionHitPoints = AdditionalHitPoints;
             this.AbilityOptional = abilityOptional;
+            this.Description = Description;
             
             
 
@@ -67,13 +71,7 @@ namespace DungensAndDragonsGenerator
 
     }
 
-    public class AbilityOptional
-    {
-        public int choose { get; set; }
-
-        public MyEnums.Skills Skills { get; set; }
-
-    }
+  
 
 
 

@@ -224,10 +224,11 @@
 
 
                         <!--RassaAndWorldSee-->
-                        <DataGrid Grid.Row="3" AutoGenerateColumns="True" IsEnabled="True"  Grid.ColumnSpan="2" Margin="0 2"  MinHeight="50">
+                        <DataGrid Grid.Row="3" IsEnabled="True"  Grid.ColumnSpan="2" Margin="0 2"  MinHeight="50">
                             <DataGrid.Columns>
-                                <DataGridComboBoxColumn Header="Класс" MinWidth="90" />
-                                <DataGridTextColumn  Header="Уровень" />
+                                <DataGridComboBoxColumn Header="Класс" MinWidth="80" />
+                                <DataGridTextColumn Header="Архетип" MinWidth="80" />
+                                <DataGridTextColumn MaxWidth="40" Header="Lvl." />
                                 <DataGridTemplateColumn  MinWidth="100">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>

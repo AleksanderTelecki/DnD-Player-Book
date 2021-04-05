@@ -24,7 +24,7 @@ namespace DungensAndDragonsGenerator
 
         public static void InitializeClasses()
         {
-          
+           
 
 
 
@@ -32,12 +32,11 @@ namespace DungensAndDragonsGenerator
 
         }
 
+
+   
         public static void InitializeRaces()
         {
-            List<Race> Races = new List<Race>();
-            
-
-
+           
 
         }
 

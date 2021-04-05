@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -13,7 +14,7 @@ namespace DungensAndDragonsGenerator
     public static class FileManager
     {
 
-        public static void Serialize<T>(T Object)
+        public static void JSONSerialize<T>(T Object)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.DefaultExt = "json";
@@ -32,7 +33,7 @@ namespace DungensAndDragonsGenerator
             }
         }
 
-        public static object Desirialize(Type DataType)
+        public static object JSONDesirialize(Type DataType)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "JSON-File | *.json";
@@ -55,5 +56,11 @@ namespace DungensAndDragonsGenerator
 
             return null;
         }
+
+
+       
+
+       
+
     }
 }

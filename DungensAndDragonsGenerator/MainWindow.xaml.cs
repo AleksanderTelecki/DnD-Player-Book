@@ -38,7 +38,8 @@ namespace DungensAndDragonsGenerator
 
 
             TabController.DataContext = CurrentPlayer;
-            MyEnums.Skills skills = MyEnums.Skills.Acrobatic;
+           
+
            
             
             
@@ -47,12 +48,13 @@ namespace DungensAndDragonsGenerator
      
         private void Menu_Save(object sender, RoutedEventArgs e)
         {
-            FileManager.Serialize<Player>(CurrentPlayer);
+            FileManager.JSONSerialize<Player>(CurrentPlayer);
         }
 
         private void Menu_Open(object sender, RoutedEventArgs e)
         {
-            FileManager.Desirialize(typeof(Player));
+            var x = FileManager.JSONDesirialize(typeof(Player));
+            var y = x;
             
         }
     }

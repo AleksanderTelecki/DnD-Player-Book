@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungensAndDragonsGenerator
 {
+    [Serializable]
     public class Class
     {
         public string Name{ get;set;}
@@ -14,7 +15,7 @@ namespace DungensAndDragonsGenerator
 
         public MyEnums.Ability SavingThrowth { get; set; }
 
-        public int Level { get; set; }
+       
 
 
     }
