@@ -46,6 +46,7 @@ namespace DungensAndDragonsGenerator
                 JsonSerializer jsonSerializer = new JsonSerializer();
                 using (StreamReader sw = new StreamReader(FilePath))
                 {
+                    
                     JsonReader jsonReader = new JsonTextReader(sw);
                     jObject = jsonSerializer.Deserialize(jsonReader) as JObject;
 

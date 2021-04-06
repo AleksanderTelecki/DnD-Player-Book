@@ -13,20 +13,51 @@ namespace DungensAndDragonsGenerator
 
         public Proficiences ProficiencyChoise { get; set; }
 
-        public MyEnums.Ability SavingThrowth { get; set; }
+        public MyEnums.Ability SavingThrow { get; set; }
 
-       
+        public List<string> SubClasses { get; set; }
 
+        public Class(string Name,Proficiences Proficiences,MyEnums.Ability SavingThrow,List<string> SubClasses)
+        {
+            this.Name = Name;
+            this.ProficiencyChoise = Proficiences;
+            this.SavingThrow = SavingThrow;
+            this.SubClasses = SubClasses;
+
+        }
+
+        public Class()
+        {
+
+        }
 
     }
 
     public class Proficiences
     {
-        public int choose { get; set; }
+        public string choose { get; set; }
 
         public MyEnums.Skills Skills {get; set;}
 
+        public Proficiences(string dbarray)
+        {
+            string[] sArray = dbarray.Split();
+
+            choose = sArray[0];
+            Skills +=int.Parse(sArray[1]);
+
+
+
+        }
+
+        public Proficiences()
+        {
+
+        }
+
     }
+
+    
 
 
 }

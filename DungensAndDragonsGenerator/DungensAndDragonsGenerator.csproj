@@ -113,6 +113,21 @@
     <Compile Include="ColorChange.xaml.cs">
       <DependentUpon>ColorChange.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseDND.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseDND.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseDND.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseDND.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBaseDND.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBaseDND.edmx</DependentUpon>
+    </Compile>
     <Compile Include="DiceRoller\D20.xaml.cs">
       <DependentUpon>D20.xaml</DependentUpon>
     </Compile>
@@ -125,6 +140,10 @@
     <Compile Include="HelperClasses\FileManager.cs" />
     <Compile Include="HelperClasses\MyEnums.cs" />
     <Compile Include="HelperClasses\Initializer.cs" />
+    <Compile Include="HelperClasses\PlayerFile.cs" />
+    <Compile Include="JSONStorage.cs">
+      <DependentUpon>DataBaseDND.tt</DependentUpon>
+    </Compile>
     <Compile Include="PdfReader\PDFReader.xaml.cs">
       <DependentUpon>PDFReader.xaml</DependentUpon>
     </Compile>
@@ -133,6 +152,18 @@
     </Compile>
     <Compile Include="DiceRoller\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TableClass.cs">
+      <DependentUpon>DataBaseDND.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableRace.cs">
+      <DependentUpon>DataBaseDND.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableSubClass.cs">
+      <DependentUpon>DataBaseDND.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableSubRace.cs">
+      <DependentUpon>DataBaseDND.tt</DependentUpon>
     </Compile>
     <Page Include="ColorChange.xaml">
       <SubType>Designer</SubType>
@@ -201,6 +232,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="DataBaseDND.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataBaseDND.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataBaseDND.edmx.diagram">
+      <DependentUpon>DataBaseDND.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -236,6 +274,16 @@
     <Resource Include="Resources\Icon_01.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataBaseDND.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseDND.edmx</DependentUpon>
+      <LastGenOutput>DataBaseDND.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataBaseDND.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBaseDND.edmx</DependentUpon>
+      <LastGenOutput>DataBaseDND.cs</LastGenOutput>
+    </Content>
     <Content Include="DataBase\DBase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

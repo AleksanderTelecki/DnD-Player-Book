@@ -29,6 +29,7 @@ namespace DungensAndDragonsGenerator
 
 
         public static Player CurrentPlayer = new Player();
+        public static PlayerFile PlayerFile;
         public MainWindow()
         {
              
@@ -38,8 +39,11 @@ namespace DungensAndDragonsGenerator
 
 
             TabController.DataContext = CurrentPlayer;
-           
+            var x = Initializer.InitializeRaces();
+            var y = x;
 
+            var z = Initializer.InitializeClasses();
+            var v = z;
            
             
             
@@ -48,14 +52,17 @@ namespace DungensAndDragonsGenerator
      
         private void Menu_Save(object sender, RoutedEventArgs e)
         {
-            FileManager.JSONSerialize<Player>(CurrentPlayer);
+            PlayerFile = new PlayerFile("Jetsuba", CurrentPlayer);
+            //FileManager.JSONSerialize<Player>(CurrentPlayer);
+            FileManager.JSONSerialize<PlayerFile>(PlayerFile);
         }
 
         private void Menu_Open(object sender, RoutedEventArgs e)
         {
-            var x = FileManager.JSONDesirialize(typeof(Player));
+            // var x = FileManager.JSONDesirialize(typeof(Player));
+            //var y = x;
+            var x = FileManager.JSONDesirialize(typeof(PlayerFile));
             var y = x;
-            
         }
     }
 }
