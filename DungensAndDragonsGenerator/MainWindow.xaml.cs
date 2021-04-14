@@ -1,9 +1,11 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,6 +32,16 @@ namespace DungensAndDragonsGenerator
 
         public static Player CurrentPlayer = new Player();
         public static PlayerFile PlayerFile;
+        public List<Class> DataGridCollection { get; set; }
+
+        #region ConsoleLib
+        [DllImport("Kernel32")]
+        public static extern void AllocConsole();
+
+        [DllImport("Kernel32")]
+        public static extern void FreeConsole();
+        #endregion
+
         public MainWindow()
         {
              
@@ -39,14 +51,14 @@ namespace DungensAndDragonsGenerator
 
 
             TabController.DataContext = CurrentPlayer;
-            var x = Initializer.InitializeRaces();
-            var y = x;
-
-            var z = Initializer.InitializeClasses();
-            var v = z;
            
-            
-            
+
+
+          
+
+
+
+
         }
 
      
@@ -63,6 +75,22 @@ namespace DungensAndDragonsGenerator
             //var y = x;
             var x = FileManager.JSONDesirialize(typeof(PlayerFile));
             var y = x;
+        }
+
+        private void DataGrid_PlusLvl(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_MinusLvl(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddClass_Click(object sender, RoutedEventArgs e)
+        {
+            ChooseClass chooseClass = new ChooseClass();
+            chooseClass.Show();
         }
     }
 }

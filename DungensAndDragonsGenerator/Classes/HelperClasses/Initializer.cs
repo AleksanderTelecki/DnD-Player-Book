@@ -10,6 +10,14 @@ namespace DungensAndDragonsGenerator
     {
 
 
+
+        private static List<Class> _classes = InitializeClasses();
+        public static List<Class> Classes { get=> _classes;}
+
+        private static List<Race> _races = InitializeRaces();
+        public static List<Race> Races { get => _races; }
+
+
         public static void WindowSizeInitialize(MainWindow mainWindow)
         {
             int majorVer = Environment.OSVersion.Version.Major;
@@ -75,13 +83,19 @@ namespace DungensAndDragonsGenerator
                 {
                     abilityBonus = abilityBonus.InitializeDictionary();
                     OptAbilityBonus = OptAbilityBonus.InitializeDictionary();
-                    subraces.Add(new Race(itemsubrace.Name, itemsubrace.Speed, itemsubrace.AdditionalInfo, itemsubrace.AdditionHitPoints, abilityBonus.ConvertToDictionary(itemsubrace.ABILITYBONUS), null, OptAbilityBonus.ConvertToDictionary(itemsubrace.ABILITYOPTBONUS), itemsubrace.DESCRIPTION));
+                    
+                    string[] SubArray = new string[4];
+                    itemsubrace.Speed.Split().CopyTo(SubArray, 0);
+                    subraces.Add(new Race(itemsubrace.Name, SubArray[0], SubArray[1], SubArray[2], SubArray[3], itemsubrace.AdditionalInfo, itemsubrace.AdditionHitPoints, abilityBonus.ConvertToDictionary(itemsubrace.ABILITYBONUS), null, OptAbilityBonus.ConvertToDictionary(itemsubrace.ABILITYOPTBONUS), itemsubrace.DESCRIPTION));
 
                 }
 
                 abilityBonus = abilityBonus.InitializeDictionary();
                 OptAbilityBonus = OptAbilityBonus.InitializeDictionary();
-                races.Add(new Race(itemrace.Name, itemrace.Speed, itemrace.AdditionalInfo, itemrace.AdditionHitPoints, abilityBonus.ConvertToDictionary(itemrace.ABILITYBONUS),subraces, OptAbilityBonus.ConvertToDictionary(itemrace.ABILITYOPTBONUS), itemrace.DESCRIPTION));
+
+                string[] Array = new string[4];
+                itemrace.Speed.Split().CopyTo(Array, 0);
+                races.Add(new Race(itemrace.Name, Array[0], Array[1], Array[2], Array[3], itemrace.AdditionalInfo, itemrace.AdditionHitPoints, abilityBonus.ConvertToDictionary(itemrace.ABILITYBONUS),subraces, OptAbilityBonus.ConvertToDictionary(itemrace.ABILITYOPTBONUS), itemrace.DESCRIPTION));
 
             }
 
@@ -89,6 +103,8 @@ namespace DungensAndDragonsGenerator
 
 
         }
+
+
 
         public static Dictionary<MyEnums.Ability, string> InitializeDictionary(this Dictionary<MyEnums.Ability, string> dictionary)
         {
@@ -151,4 +167,6 @@ namespace DungensAndDragonsGenerator
 
 
     }
+
+     
 }

@@ -15,10 +15,20 @@ namespace DungensAndDragonsGenerator
         private Dictionary<MyEnums.Ability, string> _abilityBonus = new Dictionary<MyEnums.Ability, string>();
         public Dictionary<MyEnums.Ability, string> AbilityBonus { get => _abilityBonus; set => _abilityBonus = value; }
 
+
+        private Race _choosedsubrace;
+        public Race ChoosedSubRace { get=>_choosedsubrace; set=>_choosedsubrace=value; }
+
         private List<Race> _subrace = new List<Race>();
         public List<Race> Subrace { get => _subrace; set => _subrace = value; }
 
         public string Speed { get; set; }
+
+        public string FlySpeed { get; set; }
+
+        public string SwimSpeed { get; set; }
+
+        public string CrawlSpeed { get; set; }
 
         private Dictionary<MyEnums.Ability, string> _abilityOptBonus = new Dictionary<MyEnums.Ability, string>();
         public Dictionary<MyEnums.Ability, string> AbilityOptional { get => _abilityOptBonus; set => _abilityOptBonus = value; }
@@ -29,7 +39,7 @@ namespace DungensAndDragonsGenerator
 
         public string Description { get; set; }
 
-        public Race(string Name, string Speed, string AdditionalInfo, string AdditionalHitPoints, Dictionary<MyEnums.Ability, string> AbilityBonus, List<Race> Subraces, Dictionary<MyEnums.Ability, string> abilityOptional,string Description)
+        public Race(string Name, string Speed,string FlySpeed,string SwimSpeed,string CrawlSpeed, string AdditionalInfo, string AdditionalHitPoints, Dictionary<MyEnums.Ability, string> AbilityBonus, List<Race> Subraces, Dictionary<MyEnums.Ability, string> abilityOptional,string Description)
         {
 
             this.Name = Name;
@@ -40,7 +50,9 @@ namespace DungensAndDragonsGenerator
             this.AdditionHitPoints = AdditionalHitPoints;
             this.AbilityOptional = abilityOptional;
             this.Description = Description;
-            
+            this.FlySpeed = FlySpeed;
+            this.CrawlSpeed = CrawlSpeed;
+            this.SwimSpeed = SwimSpeed;
             
 
 

@@ -86,7 +86,9 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -110,6 +112,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\ViewModels\ClassViewModel.cs" />
     <Compile Include="ColorChange.xaml.cs">
       <DependentUpon>ColorChange.xaml</DependentUpon>
     </Compile>
@@ -128,29 +131,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataBaseDND.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DiceRoller\D20.xaml.cs">
+    <Compile Include="Windows\ClassWindow\ChooseClass.xaml.cs">
+      <DependentUpon>ChooseClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DiceRollerWindow\D20.xaml.cs">
       <DependentUpon>D20.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DiceRoller\DiceRoller.xaml.cs">
+    <Compile Include="Windows\DiceRollerWindow\DiceRoller.xaml.cs">
       <DependentUpon>DiceRoller.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DiceRoller\DiceRollPage.xaml.cs">
+    <Compile Include="Windows\DiceRollerWindow\DiceRollPage.xaml.cs">
       <DependentUpon>DiceRollPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="HelperClasses\FileManager.cs" />
-    <Compile Include="HelperClasses\MyEnums.cs" />
-    <Compile Include="HelperClasses\Initializer.cs" />
-    <Compile Include="HelperClasses\PlayerFile.cs" />
+    <Compile Include="Classes\HelperClasses\FileManager.cs" />
+    <Compile Include="Classes\HelperClasses\MyEnums.cs" />
+    <Compile Include="Classes\HelperClasses\Initializer.cs" />
+    <Compile Include="Classes\HelperClasses\PlayerFile.cs" />
     <Compile Include="JSONStorage.cs">
       <DependentUpon>DataBaseDND.tt</DependentUpon>
     </Compile>
-    <Compile Include="PdfReader\PDFReader.xaml.cs">
+    <Compile Include="Windows\PdfReaderWindow\PDFReader.xaml.cs">
       <DependentUpon>PDFReader.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DiceRoller\RollPercPage.xaml.cs">
+    <Compile Include="Windows\DiceRollerWindow\RollPercPage.xaml.cs">
       <DependentUpon>RollPercPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DiceRoller\SkillPage.xaml.cs">
+    <Compile Include="Windows\DiceRollerWindow\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TableClass.cs">
@@ -169,15 +175,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DiceRoller\D20.xaml">
+    <Page Include="Windows\ClassWindow\ChooseClass.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DiceRoller\DiceRoller.xaml">
+    <Page Include="Windows\DiceRollerWindow\D20.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DiceRoller\DiceRollPage.xaml">
+    <Page Include="Windows\DiceRollerWindow\DiceRoller.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DiceRollerWindow\DiceRollPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,28 +203,28 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PdfReader\PDFReader.xaml">
+    <Page Include="Windows\PdfReaderWindow\PDFReader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DiceRoller\RollPercPage.xaml">
+    <Page Include="Windows\DiceRollerWindow\RollPercPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DiceRoller\SkillPage.xaml">
+    <Page Include="Windows\DiceRollerWindow\SkillPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlayerClasses\Class.cs" />
-    <Compile Include="PlayerClasses\Condition.cs" />
-    <Compile Include="PlayerClasses\Equipment.cs" />
-    <Compile Include="PlayerClasses\Player.cs" />
-    <Compile Include="PlayerClasses\Race.cs" />
-    <Compile Include="PlayerClasses\Skills.cs" />
-    <Compile Include="PlayerClasses\Spell.cs" />
-    <Compile Include="PlayerClasses\Weapon.cs" />
+    <Compile Include="Classes\PlayerClasses\Class.cs" />
+    <Compile Include="Classes\PlayerClasses\Condition.cs" />
+    <Compile Include="Classes\PlayerClasses\Equipment.cs" />
+    <Compile Include="Classes\PlayerClasses\Player.cs" />
+    <Compile Include="Classes\PlayerClasses\Race.cs" />
+    <Compile Include="Classes\PlayerClasses\Skills.cs" />
+    <Compile Include="Classes\PlayerClasses\Spell.cs" />
+    <Compile Include="Classes\PlayerClasses\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -307,5 +317,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

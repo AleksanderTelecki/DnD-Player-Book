@@ -1,0 +1,72 @@
+﻿<Window x:Class="DungensAndDragonsGenerator.ChooseClass"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DungensAndDragonsGenerator"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="ChooseClass" Height="120" Width="400">
+
+
+    <Window.Resources>
+
+        <Style TargetType="Button">
+
+
+            <Setter Property="Background" Value="#FFCADFD1"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border  CornerRadius="2"  Background="{TemplateBinding Background}" >
+                            <ContentPresenter   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" Value="#FF4DB3C2" />
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.7*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="5">
+            <TextBlock Text="Класс"/>
+            <ComboBox Name="Combo_Class" SelectedItem="{Binding SelectedClass}" ItemsSource="{Binding Classes}"   >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Margin="5">
+            <TextBlock Text="Архетип"/>
+            <ComboBox  Name="Combo_SubClass" SelectedItem="{Binding SelectedSubClass}" ItemsSource="{Binding SubClasses}" >
+               
+            </ComboBox>
+        </StackPanel>
+
+        <Button Click="AddClass_Click" Grid.Row="1" Margin="5" Grid.ColumnSpan="2" Content="Добавить"/>
+
+    </Grid>
+</Window>

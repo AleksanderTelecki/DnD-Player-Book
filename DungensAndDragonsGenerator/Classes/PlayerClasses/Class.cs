@@ -11,6 +11,10 @@ namespace DungensAndDragonsGenerator
     {
         public string Name{ get;set;}
 
+        public string ClassLevel { get; set; }
+
+        public string ChoosedSubClass { get; set; }
+
         public Proficiences ProficiencyChoise { get; set; }
 
         public MyEnums.Ability SavingThrow { get; set; }

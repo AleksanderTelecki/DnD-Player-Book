@@ -28,8 +28,6 @@ namespace DungensAndDragonsGenerator
         private Race _race = new Race();
         public Race Race { get=>_race; set=>_race=value; }
 
-        public Race SubRace { get; set; }
-
         public int WorldView { get; set; }
 
         public string CharacterTraits { get; set; }

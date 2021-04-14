@@ -12,8 +12,29 @@ namespace DungensAndDragonsGenerator
         [Flags]
         public enum Ability { None = 0, STR = 1, CHA = 2, DEX = 4, CON = 8, INT = 16, WIS = 32 }
 
+       
         [Flags]
-        public enum Skills { None = 0, Animal_Handling = 1, Arcana = 2, Athletics = 4, Deception = 8, History = 16, Insight = 32, Intimidation = 64, Investigation = 128, Medicine = 256, Nature = 512, Perception = 1024, Performance = 2048, Persuasion = 4096, Religion = 8192, Sleight_of_Hand = 16384, Stealth = 32768, Survival = 65536, Acrobatic = 131072 }
+        public enum Skills { 
+            None = 0,
+            Acrobatic = 1, 
+            Arcana = 2, 
+            Athletics = 4, 
+            Deception = 8, 
+            History = 16, 
+            Insight = 32, 
+            Intimidation = 64, 
+            Medicine = 128, 
+            Nature = 256, 
+            Perception = 512, 
+            Performance = 1024, 
+            Persuasion = 2048, 
+            Religion = 4096, 
+            Sleight_of_Hand = 8192, 
+            Stealth = 16384, 
+            Survival = 32768, 
+            Animal_Handling = 65536,
+            Investigation= 131072 
+        } 
 
         public static bool IsNone(this Skills skills) => skills == 0 ? true : false;
 
