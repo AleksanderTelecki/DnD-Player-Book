@@ -133,7 +133,7 @@
                         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
                             <StackPanel>
                                 <TextBlock Text="Имя Персонажа" ></TextBlock>
-                                <TextBox x:Name="_TextName" Text="{Binding Path=Name ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="170"/>
+                                <TextBox x:Name="_TextName" Text="{Binding Path=PlayerName ,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" MinWidth="170"/>
                             </StackPanel>
                             <StackPanel>
                                 <TextBlock  Text="Опыт" ></TextBlock>

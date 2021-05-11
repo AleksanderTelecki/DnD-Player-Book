@@ -13,41 +13,41 @@ namespace DungensAndDragonsGenerator
     {
 
         private ComboBox SubClassControll;
-        private Class selectedclass = new Class();
-        public ObservableCollection<Class> Classes { get; set; }
+        //private Class selectedclass = new Class();
+        //public ObservableCollection<Class> Classes { get; set; }
 
-        public Class SelectedClass
-        {
-            get { return selectedclass; }
-            set
-            {
-                if (value!=null)
-                {
+        //public Class SelectedClass
+        //{
+        //    get { return selectedclass; }
+        //    set
+        //    {
+        //        if (value!=null)
+        //        {
 
 
-                    selectedclass = value;
-                    SubClasses = new ObservableCollection<string>(value.SubClasses);
-                    SubClassControll.ItemsSource = SubClasses;
-                    SubClassControll.SelectedItem = SubClasses[0];
-                    SelectedSubClass = SubClasses[0];
-                }
-            }
-        }
+        //            selectedclass = value;
+        //            SubClasses = new ObservableCollection<string>(value.SubClasses);
+        //            SubClassControll.ItemsSource = SubClasses;
+        //            SubClassControll.SelectedItem = SubClasses[0];
+        //            SelectedSubClass = SubClasses[0];
+        //        }
+        //    }
+        //}
 
         private string selectedsubclass { get; set; }
         public ObservableCollection<String> SubClasses { get; set; }
         public string SelectedSubClass { get => selectedsubclass; set => selectedsubclass = value; }
 
-        public ClassViewModel(ObservableCollection<Class> classes,ComboBox combo)
-        {
-            SubClassControll = combo;
-            SelectedClass = classes[0] ?? new Class();
-            Classes = classes;
+        //public ClassViewModel(ObservableCollection<Class> classes,ComboBox combo)
+        //{
+        //    SubClassControll = combo;
+        //    SelectedClass = classes[0] ?? new Class();
+        //    Classes = classes;
          
           
 
 
-        }
+        //}
 
     }
 }

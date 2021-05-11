@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32;
+﻿using DungensAndDragonsGenerator.DataBase;
+using DungensAndDragonsGenerator.DataBase.DBClasses;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -32,7 +34,7 @@ namespace DungensAndDragonsGenerator
 
         public static Player CurrentPlayer = new Player();
         public static PlayerFile PlayerFile;
-        public List<Class> DataGridCollection { get; set; }
+       
 
         #region ConsoleLib
         [DllImport("Kernel32")]
@@ -51,8 +53,8 @@ namespace DungensAndDragonsGenerator
 
 
             TabController.DataContext = CurrentPlayer;
-           
-
+            List<Class> classes = new SqliteDataAccess().LoadClasses();
+            List<Race> races = new SqliteDataAccess().LoadRaces();
 
           
 

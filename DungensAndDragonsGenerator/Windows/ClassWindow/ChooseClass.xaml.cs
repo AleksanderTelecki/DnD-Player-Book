@@ -34,7 +34,7 @@ namespace DungensAndDragonsGenerator
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new ClassViewModel(new ObservableCollection<Class>(Initializer.Classes), Combo_SubClass);
+            //this.DataContext = new ClassViewModel(new ObservableCollection<Class>(Initializer.Classes), Combo_SubClass);
             
         }
     }

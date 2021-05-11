@@ -77,6 +77,9 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -90,7 +93,11 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -116,21 +123,19 @@
     <Compile Include="ColorChange.xaml.cs">
       <DependentUpon>ColorChange.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseDND.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseDND.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBaseDND.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseDND.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataBaseDND.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataBaseDND.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="DataBase\DBClasses\Ability.cs" />
+    <Compile Include="DataBase\DBClasses\Class.cs" />
+    <Compile Include="DataBase\DBClasses\ClassLevel.cs" />
+    <Compile Include="DataBase\DBClasses\Condition.cs" />
+    <Compile Include="DataBase\DBClasses\Equipment.cs" />
+    <Compile Include="DataBase\DBClasses\Player.cs" />
+    <Compile Include="DataBase\DBClasses\Race.cs" />
+    <Compile Include="DataBase\DBClasses\Skill.cs" />
+    <Compile Include="DataBase\DBClasses\Spell.cs" />
+    <Compile Include="DataBase\DBClasses\SubClass.cs" />
+    <Compile Include="DataBase\DBClasses\Weapon.cs" />
+    <Compile Include="DataBase\SqliteDataAccess.cs" />
+    <Compile Include="DataBase\DBClasses\SubRace.cs" />
     <Compile Include="Windows\ClassWindow\ChooseClass.xaml.cs">
       <DependentUpon>ChooseClass.xaml</DependentUpon>
     </Compile>
@@ -147,9 +152,6 @@
     <Compile Include="Classes\HelperClasses\MyEnums.cs" />
     <Compile Include="Classes\HelperClasses\Initializer.cs" />
     <Compile Include="Classes\HelperClasses\PlayerFile.cs" />
-    <Compile Include="JSONStorage.cs">
-      <DependentUpon>DataBaseDND.tt</DependentUpon>
-    </Compile>
     <Compile Include="Windows\PdfReaderWindow\PDFReader.xaml.cs">
       <DependentUpon>PDFReader.xaml</DependentUpon>
     </Compile>
@@ -158,18 +160,6 @@
     </Compile>
     <Compile Include="Windows\DiceRollerWindow\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="TableClass.cs">
-      <DependentUpon>DataBaseDND.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TableRace.cs">
-      <DependentUpon>DataBaseDND.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TableSubClass.cs">
-      <DependentUpon>DataBaseDND.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TableSubRace.cs">
-      <DependentUpon>DataBaseDND.tt</DependentUpon>
     </Compile>
     <Page Include="ColorChange.xaml">
       <SubType>Designer</SubType>
@@ -217,14 +207,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\PlayerClasses\Class.cs" />
-    <Compile Include="Classes\PlayerClasses\Condition.cs" />
-    <Compile Include="Classes\PlayerClasses\Equipment.cs" />
-    <Compile Include="Classes\PlayerClasses\Player.cs" />
-    <Compile Include="Classes\PlayerClasses\Race.cs" />
-    <Compile Include="Classes\PlayerClasses\Skills.cs" />
-    <Compile Include="Classes\PlayerClasses\Spell.cs" />
-    <Compile Include="Classes\PlayerClasses\Weapon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -242,13 +224,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DataBaseDND.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataBaseDND.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DataBaseDND.edmx.diagram">
-      <DependentUpon>DataBaseDND.edmx</DependentUpon>
-    </None>
+    <Content Include="DataBase\dndb.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -284,25 +262,6 @@
     <Resource Include="Resources\Icon_01.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBaseDND.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataBaseDND.edmx</DependentUpon>
-      <LastGenOutput>DataBaseDND.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataBaseDND.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataBaseDND.edmx</DependentUpon>
-      <LastGenOutput>DataBaseDND.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataBase\DBase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="DataBase\DBase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DBase.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
@@ -317,6 +276,15 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Classes\PlayerClasses\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
 </Project>
